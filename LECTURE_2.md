@@ -22,7 +22,7 @@
 * 메모리에는 모든 값들이 0또는 1의 비트열로 저장되지만 
 자료형에 따라 표현 방법이 다릅니다.
 
-<span style="color:red" `프로그램 4.1` </span>
+<span style="color:red"> **프로그램 4.1** </span>
 ```c
 #include <stdio.h>
 int main(void){
