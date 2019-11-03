@@ -9,7 +9,7 @@
 
 
 `프로그램 4.1`
-```
+```c
 #include <stdio.h>
 int main(void){
 	int i;
@@ -52,7 +52,7 @@ int i;
 float x, y;  
 
 `프로그램 4.2`  
-```
+```c
 #include <stdio.h>
 int main(void){
 	int num1, num2, num3, multiply;
