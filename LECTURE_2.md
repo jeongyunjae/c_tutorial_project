@@ -51,8 +51,8 @@ int main(void){
 int i;  
 float x, y;  
 
-'프로그램 4.2'  
-'''
+`프로그램 4.2`  
+```
 #include <stdio.h>
 int main(void){
 	int num1, num2, num3, multiply;
@@ -68,7 +68,7 @@ int main(void){
 	printf("%.2f * %.2f = %.2f\n", fnum1, fnum2, fmultiply);
 	return 0;
 }
-'''
+```
 ---
 두 정수를 입력하세요 : 4 3
 4 * 3 = 12
@@ -77,8 +77,8 @@ int main(void){
 **선언한 변수를 사용하지 않아도 됩니다.**
 **변수가 사용되기 전에 선언문이 있어야 합니다.**
 
-'프로그램 4.3'
-'''
+`프로그램 4.3`
+```
 int main(void){
 	int num1 = 10,  num2 = 20;
 	printf(" 정수 1 : %d, 정수 2 : %d", num1, num2);
@@ -87,7 +87,7 @@ int main(void){
 	printF(" 두 정수의 곱 : %d * %d = %d",num1, num2, multiply);
 	return 0;
 }
-'''
+```
 
 
 
