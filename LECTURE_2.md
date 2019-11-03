@@ -470,19 +470,19 @@ double d;
 i = c + s + f + l + d;
 ```
 	i = ((((c + s) + f) + l) + d )    
-	|		|	|	 |	  |    |  
-	|	   int int   |	  |    |  
-	|	   	|	|	 |	  |    |  
-	|		 int	 |	  |    |  
-	|		  | 	 |    |    |  
-	|		float    |    |    |  
-	|		  -float----float  |  
-	|		    	 |		   |   	  
-	|			   double---double  
-	|			          |  
-	---------------------int  
-			  |  
-			 int   
+	|       |   |    |    |    |  
+	|      int int   |    |    |  
+	|	|   |	 |    |	   |      
+	|        int	 |    |    |  
+	|	  | 	 |    |    |  
+	|	float    |    |    |  
+	|	-float----float    |  
+	|          |		   |   	  
+	|	   double---double  
+	|                 |  
+	-----------------int  
+	          |  
+	         int   
 
 
 ## 자동 변환 예제
