@@ -13,18 +13,18 @@
 
 기본 자료형
 - _Bool
-|---|
+---
 - char		signed char		unsigned char
-|---|
+---
 - short		int		long		long long
-|---|
+---
 - unsigned short		unsigned int		unsigned long		unsigned long long
-|---|
+---
 - float		double		long double
-|---|
+---
 - float _Complex		_Complex		long double _Complex
 - float _Imaginary		_Imaginary		long double _Imaginary
-|---|
+---
 
 순서있는 목록은 아래와 같이
 1. 하나
