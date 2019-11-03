@@ -22,7 +22,9 @@
 * 메모리에는 모든 값들이 0또는 1의 비트열로 저장되지만 
 자료형에 따라 표현 방법이 다릅니다.
 
+
 <span style="color:red"> **프로그램 4.1** </span>
+
 ```c
 #include <stdio.h>
 int main(void){
@@ -35,6 +37,7 @@ int main(void){
 }
 ```
 ---
+**프로그램 결과**  
 	정수 ? : 65  
 	실수 ? : 0.000000  
 	문자 ? : A  
@@ -45,15 +48,21 @@ int main(void){
 _Bool
 ---
 |char|signed char|unsigned char|
+|---|---|---|
 ---
 |short|int|long|long long|
+|---|---|---|---|
 ---
 |unsigned short|unsigned int|unsigned long|unsigned long long|
+|---|---|---|---|
 ---
 |float|double|long double|
+|---|---|---|
 ---
 |float _Complex|_Complex|long double _Complex|
+|---|---|---|
 |float _Imaginary|_Imaginary|long double _Imaginary|
+|---|---|---|
 ---
 
 ## 선언문  
@@ -84,6 +93,7 @@ int main(void){
 }
 ```
 ---
+**프로그램 결과**  
 두 정수를 입력하세요 : 4 3  
 4 * 3 = 12  
 4.00 * 3.00 = 12.00  
@@ -179,6 +189,7 @@ int main(void)
 ```
 
 --- 
+**프로그램 결과**  
 	// 4바이트 컴퓨터  
 	int 최소 값 : -2147483648  
 	int 최대 값 : 2147483647  
@@ -222,6 +233,7 @@ int main(void)
 }
 ```
 ---
+**프로그램 결과**  
 	9000000000000000000 + 9000000000000000000 = -446744073709551616
 ---
 
@@ -268,6 +280,7 @@ int main(void)
 }
 ```
 ---
+**프로그램 결과**  
 	c = a
 	c = 97
 ---
@@ -283,6 +296,7 @@ int main(void)
 }
 ```
 ---
+**프로그램 결과**  
 	c = a
 	c = 97
 ---
@@ -312,6 +326,7 @@ int main(void){
 ```
 
 --- 
+**프로그램 결과**  
 	a = 1, b = 0, c = 1
 ---
 
@@ -374,6 +389,7 @@ int main(void)
 ```
 
 ---
+**프로그램 결과**  
 	x = 8.88888931274414062500
 ---
 * 주의
