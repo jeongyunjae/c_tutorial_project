@@ -2,7 +2,7 @@
 
 ## 목차
 [1. 자료형](#자료형)  
-[2. 선연문](#선언문)  
+[2. 선언문](#선언문)  
 [3. 수식과 문장](#수식과-문장)  
 [4. 정수](#정수)  
 [5. int 자료형](#int-자료형)  
@@ -10,9 +10,9 @@
 [7. char 자료형](#char-자료형)   
 [8. 논리 값과 _Bool형](#논리-값과-_Bool형)    
 [9. 실수](#실수-표현)  
-[10. sizeof](#sizeof) 
-[11. 산술 변환](#일반적인-산술-변환)
-[12. 캐스트](#캐스트) 
+[10. sizeof](#sizeof)   
+[11. 산술 변환](#일반적-산술-변환)  
+[12. 캐스트](#캐스트)   
 
 ## 자료형
 * C 프로그램의 모든 변수는 자료형이 명시되어야 합니다.
@@ -23,7 +23,7 @@
 자료형에 따라 표현 방법이 다릅니다.
 
 
-`프로그램 4.1`
+|<span style="color:red" **프로그램 4.1** </span>|
 ```c
 #include <stdio.h>
 int main(void){
@@ -43,18 +43,18 @@ int main(void){
 
 기본 자료형
 ---
-- _Bool
+_Bool
 ---
-- char		signed char		unsigned char
+|char|signed char|unsigned char|
 ---
-- short		int		long		long long
+|short|int|long|long long|
 ---
-- unsigned short		unsigned int		unsigned long		unsigned long long
+|unsigned short|unsigned int|unsigned long|unsigned long long|
 ---
-- float		double		long double
+|float|double|long double|
 ---
-- float _Complex		_Complex		long double _Complex
-- float _Imaginary		_Imaginary		long double _Imaginary
+|float _Complex|_Complex|long double _Complex|
+|float _Imaginary|_Imaginary|long double _Imaginary|
 ---
 
 ## 선언문  
