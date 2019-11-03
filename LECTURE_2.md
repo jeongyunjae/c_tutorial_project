@@ -78,6 +78,7 @@ int main(void){
 **변수가 사용되기 전에 선언문이 있어야 합니다.**
 
 '프로그램 4.3'
+'''
 int main(void){
 	int num1 = 10,  num2 = 20;
 	printf(" 정수 1 : %d, 정수 2 : %d", num1, num2);
@@ -86,6 +87,7 @@ int main(void){
 	printF(" 두 정수의 곱 : %d * %d = %d",num1, num2, multiply);
 	return 0;
 }
+'''
 
 
 
