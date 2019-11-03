@@ -45,11 +45,13 @@ int main(void){
 ##선언문  
 **모든 변수는 사용되기 전에 반드시 선언되어야 합니다.**  
 - 자료형 식별자;
-- 자료형 식별자_목록;
+- 자료형 식별자_목록;  
+
 선언문 예
-int i;
-float x, y;
-'프로그램 4.2'
+int i;  
+float x, y;  
+
+'프로그램 4.2'  
 '''
 #include <stdio.h>
 int main(void){
