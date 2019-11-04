@@ -1,0 +1,540 @@
+# 기본 자료형
+
+## 목차
+[1. 자료형](#자료형)  
+[2. 선언문](#선언문)  
+[3. 수식과 문장](#수식과-문장)  
+[4. 정수](#정수)  
+[5. int 자료형](#int-자료형)  
+[6. 문자](#문자)  
+[7. char 자료형](#char-자료형)   
+[8. 논리 값과 _Bool형](#논리-값과-_Bool형)    
+[9. 실수](#실수-표현)  
+[10. sizeof](#sizeof)   
+[11. 산술 변환](#일반적-산술-변환)  
+[12. 캐스트](#캐스트)   
+
+## 자료형
+* C 프로그램의 모든 변수는 자료형이 명시되어야 합니다.
+	- 기본 자료형
+	- 사용자 자료형 
+
+* 메모리에는 모든 값들이 0또는 1의 비트열로 저장되지만 
+자료형에 따라 표현 방법이 다릅니다.
+
+
+
+
+**프로그램 4.1**
+
+```c
+#include <stdio.h>
+int main(void){
+	int i;
+	i = 65;
+	printf("정수 ? : %d\n", i);
+	printf("실수 ? : %f\n", i);
+	printf("문자 ? : %c\n", i);
+	return 0;
+}
+```
+---
+**프로그램 결과**  
+
+		정수 ? : 65  
+		실수 ? : 0.000000  
+		문자 ? : A  
+---
+
+기본 자료형
+---
+|_Bool|
+|---|
+---
+|char|signed char|unsigned char|
+|---|---|---|
+---
+|short|int|long|long long|
+|---|---|---|---|
+---
+|unsigned short|unsigned int|unsigned long|unsigned long long|
+|---|---|---|---|
+---
+|float|double|long double|
+|---|---|---|
+---
+|float _Complex|_Complex|long double _Complex|
+|---|---|---|
+|float _Imaginary|_Imaginary|long double _Imaginary|
+---
+
+## 선언문  
+* 모든 변수는 사용되기 전에 반드시 선언되어야 합니다.
+	- 자료형 식별자;
+	- 자료형 식별자_목록;  
+
+### 선언문 예    
+int i;  
+float x, y;  
+
+**프로그램 4.2**  
+```c
+#include <stdio.h>
+int main(void){
+	int num1, num2, num3, multiply;
+	float fnum1, fnum2, fmultiply;
+
+	printf("두 정수를 입력하세요 : ");
+	scanf("%d%d", num1 * num2);
+	multiply = num1 * num2;
+	fnum1 = num1;
+	fnum2 = num2;
+	fmultiply = fnum1 * fnum2;
+	printf("%d * %d = %d \n", num1, num2, multiply);
+	printf("%.2f * %.2f = %.2f\n", fnum1, fnum2, fmultiply);
+	return 0;
+}
+```
+---
+**프로그램 결과**  
+
+		두 정수를 입력하세요 : 4 3  
+		4 * 3 = 12  
+		4.00 * 3.00 = 12.00  
+---
+* 선언한 변수를 사용하지 않아도 됩니다.
+* 변수가 사용되기 전에 선언문이 있어야 합니다.
+
+
+**프로그램 4.3**  
+```c
+int main(void){
+	int num1 = 10,  num2 = 20;
+	printf(" 정수 1 : %d, 정수 2 : %d", num1, num2);
+	int multiply;
+	multiply = num1 * num2;
+	printF(" 두 정수의 곱 : %d * %d = %d",num1, num2, multiply);
+	return 0;
+}
+```
+## 수식 
+	*- 상수, 변수, 함수 호출 그 자체
+	- 수식과 연산자의 의미 있는 결합
+	- 대부분의 수식은 값과 형을 가집니다.
+
+### 수식 예
+	- 30
+	- 'c'
+	- a
+	- a + b
+	- c = a + b
+
+## 문장
+	- 수식 뒤에 세미콜론이 오면, 수식은 문장이 됩니다.
+
+### 문장 예
+	- 3.777;
+	- a + b;
+
+## 정수 
+	- 첫번째 비트 : 부호 (1: 음수, 0 : 양수)
+	- 나머지 비트 : 표현할 수의 2진수
+	- 양수 : 2진수
+	- 음수 : 절대 값의 2진수의 1의 보수 + 1
+	- 1의 보수 : 각 비트를 토글하는 것   ( 1 -> 0, 0 -> 1)
+
+## 정수의 표현 
+|0 1|2 3 ... 31|
+|---|---|
+|부호|표현할 수의 2진수|
+
+## 양수
+	- 부호 : 0  
+	- 341의 2진수   
+		0000000 00000000 00000001 01010101    
+	
+## 음수  
+	- 부호 : 1   
+	- -341의 2진수  
+		0000000 00000000 00000001 01010101   
+	- 1의 보수    
+		1111111 11111111 11111110 10101010  
+	- 1의 보수 + 1  
+		1111111 11111111 11111110 10101011  
+	
+## int 자료형  
+- 크기에 따른 분류  
+	- 2 바이트 : short  
+	- 4 바이트 : int  
+	- 8 바이트 : long, long long  
+	* 모든 정수를 표현할 수 없음  
+- 부호에 따른 분류  
+	- 음수 표현 가능 : signed  
+	- 음수 표현 불가능 : unsigned  
+	
+	short 자료형은 기억장소를 절약하고자 하는 경우에 사용합니다.  
+	long과 long long 형은 큰 정수 값을 다룰 때 사용합니다.  
+	unsigned 형의 변수는 음수가 아닌 정수를 표현할 때 사용합니다.  
+	<limits.h> 헤더 파일에 크기 정의가 되있습니다.  
+
+	- 값의 범위   
+			- 최소 = -2^31 		=  -2,147,483,648  
+			- 최대 = +2^31 - 1 	=  +2,147,483,647  
+
+
+**프로그램 4.4**  
+```c
+#include <stdio.h>
+#include <limits.h>
+int main(void)
+{
+	printf("int 최소 값 : %d\n", INT_MIN);
+	printf("int 최대 값 : %d\n", INT_MAX);
+	return 0;
+}  
+```
+
+--- 
+**프로그램 결과** 
+
+	// 4바이트 컴퓨터  
+	int 최소 값 : -2147483648  
+	int 최대 값 : 2147483647  
+	
+	// 2바이트 컴퓨터
+	int 최소 값 : -32768  
+	int 최대 값 : 32767
+---
+
+|자료형|크기  (바이트)|범위|변환명세|
+|---|---|---|---|
+|short|2|-2^15 ~ 2^15 - 1  (약 +- 3만)|%hd, %hx, %ho|
+|int|4|-2^31 ~ 2^31 - 1  (약 +- 21억)|%d, %x, %o|
+|long|8|-2^31 ~ 2^31 - 1  (약 +- 21억)|%ld, %lx, %lo|
+|long long|8|-2^63 ~ 2^63 - 1  (약 +- 922경)|%lld, %llx, %llo|
+
+* 정수 상수에 그 형을 명시하기 위해서는 접미사를 붙일 수 있습니다.
+* 접미사가 붙지 않은 정수 상수의 형은 int, long long, unsigned long long 중 하나입니다.
+- 시스템은 세 가지 형 중 그 정수 상수를 표현할 수 있는 첫번째 것을 선택하여  
+그 정수 상수의 형으로 합니다.
+
+- 예를 들어, 상수 2147483647은 int 형이고, 214793648은 long long 형입니다.
+
+|접미사|예제|
+|---|---|
+|u 또는 U|1024U  0xffffU|
+|l 또는 L|1024L  0xffffL|
+|ul 또는 UL|1024UL  0xffffUL|
+|ll 또는 LL|1024LL  0xffffLL|
+|ull 또는 ULL|1024ULL  0xffffULL|
+
+
+**프로그램 4.5**  
+```c
+int main(void)
+{
+	long long v1, v2, v3;
+	v1 = v2 = 9000000000000000000LL;		900경
+	v3 = v1 + v2;         // 900 경 + 900 경 = 1800경?  
+	printf("%lld + %lld = %lld\n", v1, v2, v3);
+	return 0;
+}
+```
+---
+**프로그램 결과** 
+
+		9000000000000000000 + 9000000000000000000 = -446744073709551616
+---
+
+## 정수 오버플로
+- 값의 범위를 초과할 때 발생 (주의 필요)
+- 정수 오버플로가 발생해도 프로그램은 계속 수행되지만, 논리적으로 부정확한 값이 계산됨
+
+* 문자도 컴퓨터에 저장될 때에는 0과 1의 비트열로 저장됨
+* 문자를 비트열로의 변환은 표준이 있음
+- ASCII
+
+
+|문자 상수|'a' 	'b' 	'c' 	...  'z'|
+|대응하는 값|97 	98 	99 	...  122|
+|문자 상수|'A' 	'B' 	'C' 	...  'Z'|
+|대응하는 값 |65 	66 	67 	...   90|
+|문자 상수 |'0' 	'1' 	'2' 	...  '9'|
+|대응하는 값| 48 	49 	50 	...   57|
+|문자 상수 |'&' 	'*' 	'+'|
+|대응하는 값 | 38 	42 	43|
+
+## 문자
+
+* 'a', '+'와 같은 문자 상수는 char 형이 아니라 int 형임
+* 모든 정수형의 변수는 문자를 표현하는 데 사용될 수 있음
+
+## char 자료형
+
+* char 형 변수는 문자와 정수 값을 저장하는 데 사용됨
+* char는 메모리의 1 바이트에 저장됨
+- 256개의 값을 저장할 수 있음
+* signed char 형의 값의 범위 : -128 ~ 127
+* unsigned char 형의 범위 : 0 ~ 255
+
+
+**프로그램 4.6**  
+```c
+#include <stdio.h>
+int main(void)
+{
+   char c = 'a';
+   printf("c = %c\n", c);
+   printf("c = %d\n", c);
+   return 0;
+}
+```
+---
+**프로그램 결과**  
+
+	c = a
+	c = 97
+---
+
+```c
+#include <stdio.h>
+int main(void)
+{
+   int c = 'a';
+   printf("c = %c\n", c);
+   printf("c = %d\n", c);
+   return 0;
+}
+```
+---
+**프로그램 결과**  
+
+	c = a
+	c = 97
+---
+
+## 논리 값과 _Bool 형
+* 논리 값을 다루기 위해 _Bool 형이 C99에 추가됨
+* 참과 거짓을 표현하기 위해 사용
+- 거짓 : 0
+- 참 : 1
+* <stdbool.h>에 유용한 매크로 정의
+- true : 1
+- false : 0
+- bool : _Bool
+
+
+**프로그램 4.8**  
+```c
+#include <stdio.h>
+#include <stdbool.h>
+int main(void){
+   bool a, b, c;      // _Bool  a, b, c;
+   a = true;          // a = 1;
+   b = false;         // b = 0;
+   c = 324;
+   printf("a = %d, b = %d, c = %d\n", a, b, c);
+   return 0;
+}
+```
+
+--- 
+**프로그램 결과**  
+
+	a = 1, b = 0, c = 1
+---
+
+## 실수 표현
+* 부동소수로 표현
+* 모든 수를 지수 형태로 변환하여 부호, 지수, 가수부로 나누어 저장
+- 4.0  ->  1.0 x 2^2
+	 - 부호 : +
+	 - 지수 : 2
+	 - 가수 : 1.0
+
+* 단정밀도(float)
+|0|1~8|9~31|
+|---|---|---|
+|부호|지수부|가수부|
+
+
+* 배정밀도(double)
+|0|1~11|12~63|
+|---|---|---|
+|부호|지수부|가수부|
+
+* 정수와 실수 연산이 다른 이유
+- 컴퓨터에서 정수와 실수의 표현방법이 다르기 때문
+
+## 부동형
+* 실수 값을 다루기 위해 사용함
+* float, double, long double
+- float : 4바이트
+- double : 8바이트
+- long double : 시스템 종속적
+* 부동형으로 모든 실수를 표현할 수 없음
+
+* 부동형에 배정될 수 있는 값은 정밀도와 범위라는 속성으로 기술됨
+- 정밀도 : 부동형이 표현할 수 있는 유효숫자 수
+- 범위 : 부동형이 저장할 수 있는 가장 큰 양수와 가장 작은 음수
+
+* float 형
+- 정밀도 : 대략 유효숫자 6자리
+- 범위 : 대략 10-38에서 10+38
+* double 형
+- 정밀도 : 대략 유효숫자 15자리
+- 범위 : 대략 10-308에서 10+308
+
+|자료형|크기  (바이트)|범위|변환명세|
+|---|---|---|---|
+|float|4|10^-38 ~ 10^+38|%f, %e, %g, %a|
+|double|8|10^-308 ~ 10^+308|%f, %e, %g, %a|
+|float double|?|?|%Lf, %Le, %Lg|
+
+
+**프로그램 4.9**  
+```c
+#include <stdio.h>
+int main(void)
+{
+   float x = 8.8888888888888888888;   // 20개의 8
+   printf("x = %.20f\n", x);
+   return 0;
+}
+```
+
+---
+**프로그램 결과**  
+
+	x = 8.88888931274414062500
+---
+* 주의
+- 정수 산술 연산과 달리 부동형 산술 연산은 정확하지 않다. 
+
+## 부동형 상수 표기법
+* 고정소수점 표기법
+- 1.0 또는 1. 또는 .0001
+* 지수 표기법
+- 10진 부동형 상수
+	- 1.234567e5 (= 1.234567 X 105)
+
+* 올바른 부동형 상수
+- 3.14159,   314.159e-2F,   0e0,   1.
+* 잘못된 부동형 상수
+- 3.14,159
+- 314159
+- .e0
+
+## 부동형 접미사
+
+|접미사|자료형|예제|
+|---|---|---|
+|f, F|float|10.24F  1.024e3f|
+|없음|double|10.24  1.024e3|
+|l, L|long double|10.24L  1.024e3L|
+
+## sizeof
+* 피연산자로 명시된 객체를 저장하는 데 필요한 바이트 수를 알아내기 위해 사용  
+- 피연산자로는 자료형이나 수식이 올 수 있음
+* 사용법
+- sizeof(int) : int의 크기 알려줌; 괄호를 생략할 수 없음
+- sizeof(c) : c의 크기를 알려줌; 괄호 생략 가능
+- sizeof(a + b) : a + b의 형의 크기를 알려줌
+- sizeof a + b : (sizeof a) + b
+
+## 일반적 산술 변환
+* 산술 수식은 값과 형을 가짐
+* 산술 수식의 피연산자들의 형이 다르면 피연산자의 형을 변환하여 일치 시킴
+* 일반적 산술 변환은 컴파일러에 의해 자동적으로 일어남
+- 컴파일러는 선언문을 참조하여 이러한 일을 수행함
+- 자동 형 변환(Automatic type conversion)
+- 묵시적 형 변환(Implicit type conversion)
+
+* 정수 승격
+- 정수 수식에서 일반적 산술 변환의 한 단계로 일어남
+- _Bool, char, signed char, unsigned char, signed short, unsigned short는 산술 수식에서 int나 unsigned int로 변환
+- 예
+	char a, b, c;
+	c = a + b;     // a와 b는 int로 정수 승격됨
+
+* 기본 규칙 : 큰 쪽으로 형 변환
+* 규칙
+```
+if (한 피연산자가 long double) 다른 피연산자를 long double로 변환
+else if (한 피연산자가 double) 다른 피연산자를 double로 변환
+else if (한 피연산자가 float) 다른 피연산자를 float으로 변환
+else {
+   두 피연산자에 정수 승격 적용
+   if (두 피연산자의 형이 같음) 자동 변환 종료
+   else if (한 피연산자가 unsigned long long) 
+            다른 피연산자를 unsigned long long으로 변환
+   else if (한 피연산자가 long long) 다른 피연산자를 long long으로 변환
+   else if (한 피연산자가 unsigned long) 다른 피연산자를 unsigned long으로 변환
+   else if (한 피연산자가 long) 다른 피연산자를 long으로 변환
+   else if (한 피연산자가 unsigned) 다른 피연산자를 unsigned로 변환
+}
+```
+```
+char c;  
+unsigned short s;  
+int i;  
+long l;  
+float f;  
+double d;
+
+i = c + s + f + l + d;
+```
+	i = ((((c + s) + f) + l) + d )    
+	|       |   |    |    |    |  
+	|      int int   |    |    |  
+	|	|   |	 |    |	   |      
+	|        int	 |    |    |  
+	|	  | 	 |    |    |  
+	|	float    |    |    |  
+	|	-float----float    |  
+	|          |		   |   	  
+	|	   double---double  
+	|                 |  
+	-----------------int  
+	          |  
+	         int   
+
+
+## 자동 변환 예제
+
+|선언|
+|char c;    short s;     int i;	
+long l;    unsigned u;  unsigned long ul;
+float f;   double d;    long double ld;|
+|수식|형|
+|---|---|
+|c - s / i|int|
+|u * 2.0 - i|double|
+|c + 3|int|
+|c + 5.0|double|
+|d + s|double|
+|2 * i / l|long|
+|u * 7 - i|unsigned|
+|f * 7 - i|float|
+|7 * s * ul|unsigned long|
+|ld + c|long double|
+|u - ul|unsigned long|
+|u – l|system-dependent|
+
+
+## 캐스트
+* 명시적인 변환이 필요할 때가 있음
+	int sum = 9, num = 10;
+	float avg;
+	avg = sum / num;      // / : 정수 나누기
+* 캐스트 연산자
+- 괄호 안의 자료형 
+	(int), (float)
+- 형을 변환하고자하는 수식 앞에 붙임
+	(float) sum
+* 캐스트 예제
+	avg = (float) sum / (float) num
+	avg = (float) sum / num
+	(double) (num = 10)
+* 잘못된 캐스트
+	(double) num = 10
