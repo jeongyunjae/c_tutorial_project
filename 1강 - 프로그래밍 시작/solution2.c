@@ -1,5 +1,6 @@
 #include<stdio.h>
 int main(){
-    printf("\"C언어 출력했다!\"");
+    printf("%%-|\"\n\'-*\\");
     return 0;
 }
+
