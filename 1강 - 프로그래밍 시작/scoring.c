@@ -9,7 +9,7 @@ void set_end(char *str){
 	}
 }
 int main(int argc, char *argv[]){
-	char command[50], source_name[50], res[2][50];
+	char command[100], source_name[50], res[2][50];
 	int num, i = 1, c;
 	FILE *fp, *file_compare[2];
 
@@ -30,13 +30,10 @@ int main(int argc, char *argv[]){
 			set_end(res[0]);
 			set_end(res[1]);
 			if((c=strcmp(res[0], res[1])) != 0){
-				printf("%s\n%s",res[0], res[1]);
 				printf("Incorrect\n");
 				return -1;
 			}
-			printf("%s\n%s",res[0], res[1]);
 			fclose(file_compare[0]);
-			fclose(fp);
 		}
 		i++;
 	}
