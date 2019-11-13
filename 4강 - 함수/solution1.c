@@ -8,6 +8,7 @@ int remainder(int a, int b){
   return a%b;
 }
 
+
 int main(void){
   int a,b,result;
   printf("두 정수를 입력하십시오\n");
