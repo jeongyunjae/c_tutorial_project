@@ -1,15 +1,20 @@
 #include<stdio.h>
 #include<string.h>
 #include<stdlib.h>
-void set_end(char *str){
-	for(int i = 0; str[i] != '\0'; i++){
-		if(str[i] == 3 || str[i] == 10 || str[i] == 13){
-			str[i] = 0;
-		}
-	}
+
+int check();
+
+int main(){
+	if(check() == 0) printf("맞았습니다!\n");
+	else printf("틀렸습니다..\n");
+	system("rm out_solution.txt");
+	system("rm out_problem.txt");
+	system("./a");
+
+	return 0;
 }
-int main(int argc, char *argv[]){
-	char command[100], source_name[50], res[2][50];
+int check(){
+	char command[100], source_name[50];
 	int num, i = 1, c;
 	FILE *fp, *file_compare[2];
 
@@ -17,27 +22,18 @@ int main(int argc, char *argv[]){
 	scanf("%s %d", source_name, &num);
 
 	while(1){
-		sprintf(command, ".data/%d/%d.txt", num, i);
-		//결과 읽어오기
-		if((file_compare[0] = fopen(command, "r")) == NULL) break;
-		else{
-			sprintf(command, ".input/%d/%d.txt", num, i);
-			sprintf(command, "gcc -o test %s && ./test < .input/%d/%d.txt > out.txt", source_name, num, i);
-			system(command);
-			file_compare[1] = fopen("out.txt", "r");
-			fscanf(file_compare[0], "%[^0]", res[1]);
-			fscanf(file_compare[1], "%[^0]", res[0]);
-			set_end(res[0]);
-			set_end(res[1]);
-			if((c=strcmp(res[0], res[1])) != 0){
-				printf("Incorrect\n");
-				return -1;
-			}
-			fclose(file_compare[0]);
+		sprintf(command, ".input/%d/%d.txt", num, i);
+		fp = fopen(command, "r");
+		if(fp == NULL) break;
+		fclose(fp);
+		sprintf(command, "./data/%d < .input/%d/%d.txt > out_solution.txt", i, num, i);
+		system(command);
+		sprintf(command, "gcc %s && ./a < .input/%d/%d.txt > out_problem.txt", source_name, num, i);
+		system(command);
+		if(system("cmp -s out_problem.txt out_solution.txt") != 0){
+			break;
 		}
 		i++;
 	}
-	printf("Correct\n");
-
 	return 0;
 }
