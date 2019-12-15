@@ -28,3 +28,6 @@
 |테스트|데이터|1|
 |테스트|데이터|2|
 |테스트|데이터|3|
+
+이미지는 이렇게  
+![이미지 이름](https://img1.daumcdn.net/thumb/S272x320/?scode=mtistory2&fname=https%3A%2F%2Fk.kakaocdn.net%2Fdn%2FAPkbT%2FbtqzcWE1X0J%2F1hArWk9YFK4Q6KuHSaHaNK%2Fimg.png)
